@@ -1,0 +1,149 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+$main-color: black;
+$mid-color:gray;
+$realce-color: white;
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 0;
+}
+#card-colection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+%card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 15px 5px;
+    box-shadow: 2px 2px 5px gray;
+    img {
+        width:100%;
+    }
+
+    div {
+        flex: 1;
+        padding: 10px;
+        text-align: justify;
+    }
+}
+
+.card-main {
+    @extend %card;
+    border: 1px solid $main-color;
+    div {
+        background: yellow;
+        color: green;
+    }
+}
+
+.card-mid {
+    @extend %card;
+    border: 1px solid $mid-color;
+    div {
+        background-color: yellowgreen;
+        color: brown;
+    }
+}
+
+nav {
+    background-color: $main-color;
+    color: $realce-color;
+    ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+            margin: 0;
+            border: none;
+            a {
+                display: inline-block;
+                padding: 10px 5px;
+                min-width: 50px;
+                text-align: center;
+                border: none;
+                margin: 0;
+                color: $realce-color;
+                text-decoration: none;
+            }
+
+            a:visited{
+                color: $realce-color;
+                text-decoration: none;
+            }
+
+            a:hover {
+                background-color: $mid-color;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            a.active{
+                background-color: $mid-color;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.flex-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+%box {
+    width: 100%;
+    height: 16.66%;
+    text-align: center;
+}
+
+.box1 {
+    @extend %box;
+    background-color: yellow;
+}
+
+.box2 {
+    @extend %box;
+    background-color: red;
+}
+
+.box3 {
+    @extend %box;
+    background-color: green;
+}
+
+.box4 {
+    @extend %box;
+    background-color: blue;
+}
+
+.box5 {
+    @extend %box;
+    background-color: $main-color;
+}
+
+.box6 {
+    @extend %box;
+    background-color: $mid-color;
+}
